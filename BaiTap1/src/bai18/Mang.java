@@ -4,11 +4,12 @@ package bai18;
 import java.util.Random;
 
 public class Mang {
-    private int[] a = new int[1001];
+    private int[] a;
     private int n;
     private Random random = new Random();
     public Mang(int x){
         n = x;
+        a = new int[x];
     }
     public void randomArray(){
         int x;

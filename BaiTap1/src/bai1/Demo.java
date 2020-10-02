@@ -1,30 +1,33 @@
 
 package bai1;
 
-import java.util.*;
-import java.util.LinkedList;
+// Java code to show IndexOutofBoundException 
 
-public class Demo {
+import java.util.AbstractList;
+import java.util.ArrayList;
+import java.util.List;
 
-    public static void main(String[] args) {
-        //tạo một đối tượng linkedList
-        AbstractCollection<Object> abs = new LinkedList<>();
-        //thêm các phần tử
-        abs.add("hello");
-        abs.add("I'm");
-        abs.add("java");
-        abs.add("programming");
-        abs.add("language");
+public class Demo { 
+  
+    public static void main(String[] args) 
+    {
         
-        AbstractCollection<Object> abs2 = new LinkedList<>();
-        abs2.add("hello");
-        abs2.add("I'm");
-        abs2.add("java");
-        abs2.add("programming");
-        abs2.add("language");
+        //khởi tạo đối tượng list thông qua lớp ArrayList
+        AbstractList<Integer> list = new ArrayList<>();
         
+        //thêm phần tử vào list
+        list.add(10);
+        list.add(20);
+        list.add(90);
+        list.add(20);
+        list.add(50);
+        list.add(80);
         
-        System.out.println(abs2.toString());
-    }
-    
+        //tạo list2 lấy phần tử từ vị trí 1 đến 4 của list
+        List<Integer> list2 = list.subList(1, 5);
+        
+       //hien thị màn hình
+        System.out.println("list: "+list);
+        System.out.println("list2: "+list2);
+    } 
 }

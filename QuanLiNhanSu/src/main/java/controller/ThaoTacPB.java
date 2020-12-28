@@ -26,6 +26,15 @@ public class ThaoTacPB {
         else return timTen(list, ma);
     }
     
+    public static void themPB(List<PhongBan> list, String ten, String moTa, String heSo){
+        if(!list.isEmpty()) PhongBan.setStMa(list.get(list.size()-1).getMa()+1);
+        
+        PhongBan phongBan = new PhongBan(ten, moTa, Double.parseDouble(heSo));
+        list.add(phongBan);
+    }
+    
+    
+    
     private static PhongBan timMa(List<PhongBan> list, String ma){
         int i = 0;
         while(i < list.size()){

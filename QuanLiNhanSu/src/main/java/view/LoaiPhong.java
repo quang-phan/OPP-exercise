@@ -7,14 +7,14 @@ package view;
 
 /**
  *
- * @author User
+ * @author ADMIN
  */
-public class NghiViec extends javax.swing.JDialog {
+public class LoaiPhong extends javax.swing.JDialog {
     ViewHome home;
     /**
-     * Creates new form NghiViec
+     * Creates new form LoaiPhong
      */
-    public NghiViec(java.awt.Frame parent, boolean modal) {
+    public LoaiPhong(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
         home = (ViewHome)parent;
@@ -30,20 +30,13 @@ public class NghiViec extends javax.swing.JDialog {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        maNV = new javax.swing.JTextField();
-        xacNhan = new javax.swing.JButton();
+        maPhong = new javax.swing.JTextField();
         huy = new javax.swing.JButton();
+        xacNhan = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        jLabel1.setText("Nhap ten/ma nhan vien:");
-
-        xacNhan.setText("Xac nhan");
-        xacNhan.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                xacNhanActionPerformed(evt);
-            }
-        });
+        jLabel1.setText("Ten/ma phong ban: ");
 
         huy.setText("Huy");
         huy.addActionListener(new java.awt.event.ActionListener() {
@@ -52,36 +45,42 @@ public class NghiViec extends javax.swing.JDialog {
             }
         });
 
+        xacNhan.setText("Xac nhan");
+        xacNhan.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                xacNhanActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(xacNhan)
-                        .addGap(36, 36, 36)
-                        .addComponent(huy))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(maNV, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(32, Short.MAX_VALUE))
+                        .addComponent(huy))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(maPhong, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(62, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(27, 27, 27)
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(maPhong, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(maNV, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(35, 35, 35)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(xacNhan)
-                    .addComponent(huy))
-                .addContainerGap(195, Short.MAX_VALUE))
+                    .addComponent(huy)
+                    .addComponent(xacNhan))
+                .addContainerGap(235, Short.MAX_VALUE))
         );
 
         pack();
@@ -89,7 +88,7 @@ public class NghiViec extends javax.swing.JDialog {
 
     private void xacNhanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_xacNhanActionPerformed
         // TODO add your handling code here:
-        home.loaiNV(maNV.getText());
+        home.xoaPB(maPhong.getText());
     }//GEN-LAST:event_xacNhanActionPerformed
 
     private void huyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_huyActionPerformed
@@ -102,7 +101,7 @@ public class NghiViec extends javax.swing.JDialog {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton huy;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JTextField maNV;
+    private javax.swing.JTextField maPhong;
     private javax.swing.JButton xacNhan;
     // End of variables declaration//GEN-END:variables
 }

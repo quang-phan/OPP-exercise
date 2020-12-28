@@ -48,5 +48,11 @@ public class PhongBan implements Serializable{
         PhongBan.stMa = stMa;
     }
     
+    public void setMoTa(String moTa){
+        this.moTa = moTa;
+    }
     
+    public void setHeSo(String heSo){
+        this.heSo = Double.parseDouble(heSo);
+    }
 }

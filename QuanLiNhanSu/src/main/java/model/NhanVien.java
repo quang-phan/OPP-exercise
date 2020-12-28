@@ -13,7 +13,7 @@ import java.io.Serializable;
  */
 public class NhanVien implements Serializable{
     private static int stMa = 1000;
-    private int ma, bacLuong;
+    private int ma, bacLuong, ngayCong = 0;
     private String ten, diaChi, sdt;
     private PhongBan phongBan;
     
@@ -49,6 +49,20 @@ public class NhanVien implements Serializable{
     public String getSdt() {
         return sdt;
     }
+
+    public PhongBan getPhongBan() {
+        return phongBan;
+    }
+
+    public int getNgayCong() {
+        return ngayCong;
+    }
+
+    public void setNgayCong(int ngayCong) {
+        this.ngayCong = ngayCong;
+    }
+    
+    
 
     public static void setStMa(int stMa) {
         NhanVien.stMa = stMa;

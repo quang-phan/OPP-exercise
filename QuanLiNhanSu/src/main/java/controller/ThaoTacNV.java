@@ -30,41 +30,67 @@ public class ThaoTacNV {
         list.add(nhanVien);
 
     }
-    
-    public static boolean boNV(List<NhanVien> list, String maNV){
-        if(maNV.matches("\\d{4}")){
-            int x = timTheoMa(list, maNV);
-            
-            if(x != -1){
-                list.remove(x);
-                return true;
+
+    public static NhanVien timNV(List<NhanVien> list, String ma) {
+        if (ma.matches("\\d{4}")) {
+            int x = timTheoMa(list, ma);
+
+            if (x != -1) {
+                return list.get(x);
+            } else {
+                return null;
             }
-            else return false;
-        }else{
-            int x = timTheoTen(list, maNV);
-            
-            if(x != -1){
-                list.remove(x);
-                return true;
-            }else return false;
+        } else {
+            int x = timTheoTen(list, ma);
+
+            if (x != -1) {
+                return list.get(x);
+            } else {
+                return null;
+            }
         }
     }
-    
-    
-    private static int timTheoMa(List<NhanVien> list, String maNV){
+
+    public static boolean boNV(List<NhanVien> list, String maNV) {
+        if (maNV.matches("\\d{4}")) {
+            int x = timTheoMa(list, maNV);
+
+            if (x != -1) {
+                list.remove(x);
+                return true;
+            } else {
+                return false;
+            }
+        } else {
+            int x = timTheoTen(list, maNV);
+
+            if (x != -1) {
+                list.remove(x);
+                return true;
+            } else {
+                return false;
+            }
+        }
+    }
+
+    private static int timTheoMa(List<NhanVien> list, String maNV) {
         int i = 0;
-        while(i < list.size()){
-            if(list.get(i).getMa() == Integer.parseInt(maNV)) return i;
+        while (i < list.size()) {
+            if (list.get(i).getMa() == Integer.parseInt(maNV)) {
+                return i;
+            }
             i++;
         }
         return -1;
     }
-    
-    private static int timTheoTen(List<NhanVien> list, String ten){
+
+    private static int timTheoTen(List<NhanVien> list, String ten) {
         int i = 0;
-        
-        while(i < list.size()){
-            if(list.get(i).getTen().compareTo(ten) == 0) return i;
+
+        while (i < list.size()) {
+            if (list.get(i).getTen().compareTo(ten) == 0) {
+                return i;
+            }
             i++;
         }
         return -1;
@@ -81,44 +107,44 @@ public class ThaoTacNV {
         }
         return -1;
     }
-    
-    public static void ghiFile(List<NhanVien> list){
+
+    public static void ghiFile(List<NhanVien> list) {
         File file = new File("NV.TXT");
-        
-        try{
+
+        try {
             FileOutputStream fileOutputStream = new FileOutputStream(file);
             ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream);
-            
+
             Iterator<NhanVien> iterator = list.iterator();
-            
-            while(iterator.hasNext()){
+
+            while (iterator.hasNext()) {
                 objectOutputStream.writeObject(iterator.next());
             }
-            
+
             objectOutputStream.close();
             fileOutputStream.close();
-        }catch(Exception exception){
+        } catch (Exception exception) {
             System.out.println(exception.getMessage());
         }
     }
-    
-    public static List<NhanVien> docFile(){
+
+    public static List<NhanVien> docFile() {
         File file = new File("NV.TXT");
         List<NhanVien> list = new ArrayList<>();
-        
-        try{
+
+        try {
             FileInputStream fileInputStream = new FileInputStream(file);
             ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);
-            
-            NhanVien nv = (NhanVien)objectInputStream.readObject();
-            while(nv != null){
+
+            NhanVien nv = (NhanVien) objectInputStream.readObject();
+            while (nv != null) {
                 list.add(nv);
-                nv = (NhanVien)objectInputStream.readObject();
+                nv = (NhanVien) objectInputStream.readObject();
             }
-        }catch(Exception exception){
+        } catch (Exception exception) {
             System.out.println(exception.getMessage());
         }
-        
+
         return list;
     }
 }
